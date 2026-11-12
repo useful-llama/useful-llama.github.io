@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Send optional, private feedback about Useful Llama apps.">
+  <title>App feedback · Useful Llama</title>
+  <style>
+    :root { color-scheme: light dark; --page:#f5f7fa; --card:#fff; --ink:#172b45; --muted:#526174; --line:#d9e1eb; --navy:#1f3864; --soft:#edf2fa; --star:#a35a00; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--page); color:var(--ink); font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    header { padding:17px 20px; background:#1f3864; }
+    header a { color:#fff; text-decoration:none; font-size:19px; font-weight:750; }
+    main { max-width:600px; margin:24px auto; padding:0 16px; }
+    h1 { font-size:30px; letter-spacing:-.6px; line-height:1.2; margin:0 0 6px; }
+    .intro { color:var(--muted); margin:0 0 20px; }
+    .info { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-bottom:18px; }
+    details + details { border-top:1px solid var(--line); }
+    summary { display:flex; align-items:center; justify-content:space-between; gap:14px; cursor:pointer; list-style:none; padding:15px 18px; font-weight:650; min-height:54px; }
+    summary::-webkit-details-marker { display:none; }
+    summary::after { content:""; width:9px; height:9px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg); flex:none; margin:0 4px 5px 0; }
+    details[open] summary::after { transform:rotate(225deg); margin-top:8px; }
+    details p { margin:0; padding:0 18px 18px; color:var(--muted); font-size:15px; }
+    form { background:var(--card); padding:22px; border:1px solid var(--line); border-radius:16px; }
+    label.field-label, legend { display:block; font-weight:700; padding:0; margin-bottom:8px; }
+    .secondary { font-weight:400; color:var(--muted); }
+    select,textarea { display:block; width:100%; background:var(--card); color:var(--ink); border:1px solid #9caabd; border-radius:9px; font:inherit; padding:12px; }
+    select { min-height:48px; }
+    textarea { min-height:120px; resize:vertical; }
+    fieldset { padding:0; border:0; min-width:0; margin:24px 0; }
+    .stars { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:5px; max-width:340px; }
+    .star { position:relative; display:flex; align-items:center; justify-content:center; min-height:54px; border:1px solid var(--line); border-radius:9px; cursor:pointer; color:var(--muted); }
+    .star input { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; }
+    .star svg { width:30px; height:30px; fill:none; stroke:currentColor; stroke-width:1.7; pointer-events:none; }
+    .star:has(input:checked), .star:has(~ .star input:checked) { color:var(--star); background:var(--soft); border-color:var(--star); }
+    .star:has(input:checked) svg, .star:has(~ .star input:checked) svg { fill:currentColor; }
+    .star:has(input:focus-visible), :is(summary,select,textarea,button,a):focus-visible { outline:3px solid #007e94; outline-offset:3px; }
+    .rating-help { display:flex; align-items:center; justify-content:space-between; gap:8px; max-width:340px; min-height:32px; margin-top:5px; color:var(--muted); font-size:14px; }
+    .clear { border:0; padding:5px 0 5px 8px; background:transparent; color:var(--navy); text-decoration:underline; font:inherit; cursor:pointer; min-height:36px; }
+    [hidden] { display:none !important; }
+    .help { font-size:13px; color:var(--muted); margin:7px 0 0; }
+    .notice { color:var(--muted); font-size:13px; margin:22px 0 12px; }
+    .send { display:block; width:100%; min-height:50px; border:0; border-radius:10px; background:#1f3864; color:#fff; font:700 16px/1.4 system-ui,sans-serif; cursor:pointer; padding:12px; }
+    .next { text-align:center; font-size:12px; color:var(--muted); margin:10px 0 0; }
+    footer { text-align:center; font-size:13px; color:var(--muted); padding:0 16px 28px; }
+    footer a { color:var(--navy); }
+    @media(max-width:380px) { main { padding:0 12px; margin-top:20px; } form { padding:17px; } h1 { font-size:28px; } }
+    @media(prefers-color-scheme:dark) { :root { --page:#0f1a2a; --card:#16243a; --ink:#e6ecf3; --muted:#b5c1d0; --line:#394b63; --navy:#a9caff; --soft:#263750; --star:#ffd074; } }
+    @media(forced-colors:active) { .star:has(input:checked) { outline:3px solid Highlight; } }
+  </style>
+</head>
+<body>
+  <header><a href="https://useful-llama.github.io/">Useful Llama</a></header>
+  <main>
+    <h1>App feedback</h1>
+    <p class="intro">Tell us what you think. <span lang="es">Cuéntanos qué te parece.</span></p>
+    <div class="info">
+      <details>
+        <summary>About your feedback</summary>
+        <p>Feedback is optional and private. It is not a Google Play review. Your rating, comment and selected app are stored in Google Forms and reviewed privately by Useful Llama. When monthly reporting is enabled, your feedback may also be included in a report emailed to useful.llama@gmail.com. We do not request your email address. Please do not include passwords, payment details or other sensitive information.</p>
+      </details>
+      <details lang="es">
+        <summary>Sobre tus comentarios</summary>
+        <p>Los comentarios son opcionales y privados; no son una reseña de Google Play. Tu valoración, comentario y la aplicación seleccionada se guardan en Google Forms y Useful Llama los revisa de forma privada. Cuando se active el informe mensual, tus comentarios también podrán incluirse en un informe enviado a useful.llama@gmail.com. No pedimos tu correo electrónico. No incluyas contraseñas, datos de pago ni otra información sensible.</p>
+      </details>
+    </div>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSc_CToPU3GypdZhqz-vyYm3xFdll_HpEf_3zc8UUGXsV9KU4Q/formResponse" method="post" target="_self" autocomplete="off">
+      <input type="hidden" name="fvv" value="1">
+      <input type="hidden" name="pageHistory" value="0">
+      <input type="hidden" name="entry.5686609_sentinel" value="">
+      <label class="field-label" for="app">App <span class="secondary" lang="es">/ Aplicación</span></label>
+      <select id="app" name="entry.1314557593">
+        <option value="">Choose an app / Elige una aplicación</option>
+        <option>Funspañol</option>
+        <option>Divertinglish</option>
+        <option>Invoice Maker</option>
+        <option>Time Card</option>
+        <option>Road Camera</option>
+      </select>
+      <fieldset aria-describedby="rating-status">
+        <legend>Stars <span class="secondary" lang="es">/ Estrellas</span></legend>
+        <div class="stars">
+          <label class="star"><input type="radio" name="entry.5686609" value="1" aria-label="1 out of 5 stars / 1 de 5 estrellas"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 4 8.2 9 1.3-6.5 6.4 1.5 9L16 23.6 8 28l1.5-9.1L3 12.5l9-1.3Z"/></svg></label>
+          <label class="star"><input type="radio" name="entry.5686609" value="2" aria-label="2 out of 5 stars / 2 de 5 estrellas"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 4 8.2 9 1.3-6.5 6.4 1.5 9L16 23.6 8 28l1.5-9.1L3 12.5l9-1.3Z"/></svg></label>
+          <label class="star"><input type="radio" name="entry.5686609" value="3" aria-label="3 out of 5 stars / 3 de 5 estrellas"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 4 8.2 9 1.3-6.5 6.4 1.5 9L16 23.6 8 28l1.5-9.1L3 12.5l9-1.3Z"/></svg></label>
+          <label class="star"><input type="radio" name="entry.5686609" value="4" aria-label="4 out of 5 stars / 4 de 5 estrellas"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 4 8.2 9 1.3-6.5 6.4 1.5 9L16 23.6 8 28l1.5-9.1L3 12.5l9-1.3Z"/></svg></label>
+          <label class="star"><input type="radio" name="entry.5686609" value="5" aria-label="5 out of 5 stars / 5 de 5 estrellas"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 4 8.2 9 1.3-6.5 6.4 1.5 9L16 23.6 8 28l1.5-9.1L3 12.5l9-1.3Z"/></svg></label>
+        </div>
+        <div class="rating-help"><span id="rating-status" aria-live="polite">Tap a star / Toca una estrella</span><button type="button" class="clear" id="clear-rating" hidden>Clear / Borrar</button></div>
+      </fieldset>
+      <label class="field-label" for="comment">Comment <span class="secondary" lang="es">/ Comentario</span></label>
+      <textarea id="comment" name="entry.1331036408" maxlength="1000" aria-describedby="comment-help"></textarea>
+      <p class="help" id="comment-help">Optional · <span lang="es">Opcional</span> · 1,000 characters / caracteres</p>
+      <p class="notice">Private feedback via Google Forms. Not a Play review.<br><span lang="es">Comentarios privados a través de Google Forms. No es una reseña de Play.</span></p>
+      <button class="send" type="submit">Send feedback <span lang="es">/ Enviar</span></button>
+      <p class="next">Google opens to confirm receipt.<br><span lang="es">Google se abrirá para confirmar la recepción.</span></p>
+    </form>
+  </main>
+  <footer><a href="https://useful-llama.github.io/">Useful Llama</a></footer>
+  <script>
+    const ratingInputs = [...document.querySelectorAll('.star input')];
+    const ratingStatus = document.getElementById('rating-status');
+    const clearRating = document.getElementById('clear-rating');
+    function updateRating() {
+      const selected = ratingInputs.find(input => input.checked);
+      ratingStatus.textContent = selected ? selected.value + ' / 5' : 'Tap a star / Toca una estrella';
+      clearRating.hidden = !selected;
+    }
+    ratingInputs.forEach(input => input.addEventListener('change', updateRating));
+    clearRating.addEventListener('click', () => {
+      ratingInputs.forEach(input => { input.checked = false; });
+      updateRating();
+      ratingInputs[0].focus();
+    });
+    const feedbackForm = document.querySelector('form');
+    const sendButton = document.querySelector('.send');
+    const sendLabel = sendButton.innerHTML;
+    let sending = false;
+    feedbackForm.addEventListener('submit', event => {
+      if (sending) { event.preventDefault(); return; }
+      sending = true;
+      sendButton.disabled = true;
+      sendButton.textContent = 'Sending… / Enviando…';
+    });
+    window.addEventListener('pageshow', () => {
+      sending = false;
+      sendButton.disabled = false;
+      sendButton.innerHTML = sendLabel;
+      updateRating();
+    });
+  </script>
+</body>
+</html>
