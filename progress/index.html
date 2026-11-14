@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning progress · Useful Llama</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .summary { display: flex; gap: 16px; flex-wrap: wrap; margin: 8px 0 24px; }
+  .stat { flex: 1 1 140px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 32px; line-height: 1.1; color: var(--primary); }
+  .unit { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; margin: 0 0 14px; }
+  .unit h2 { font-size: 18px; margin: 0 0 6px; }
+  .row { display: grid; grid-template-columns: 1fr 90px 52px; gap: 10px; align-items: center; padding: 4px 0; }
+  .bar { height: 10px; border-radius: 5px; background: var(--line); overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--accent); }
+  .row.perfect .bar i { background: #f2b705; }
+  .pct { text-align: right; font-weight: 700; }
+  .note { color: var(--muted); font-size: 15px; }
+</style>
+</head>
+<body>
+<header><a class="brand" href="../">Useful Llama</a></header>
+<main>
+  <h1 id="title">Learning progress</h1>
+  <div id="out"><p class="note" id="status">Loading…</p></div>
+  <p class="note" id="privacy"></p>
+</main>
+<script>
+// Shared from Funspañol or Divertinglish ("Share my progress"). Everything shown comes from this link, after the "#":
+// it is never sent to this website, and it holds lesson scores only, nothing personal.
+const TEXT = {
+  fun: { title: "Funspañol progress", lessons: "lessons done", average: "average score", none: "No lessons in this link.",
+         privacy: "Shared from Funspañol by Useful Llama. The scores are inside the link itself; this page stores nothing." },
+  div: { title: "Progreso en Divertinglish", lessons: "lecciones hechas", average: "nota media", none: "No hay lecciones en este enlace.",
+         privacy: "Compartido desde Divertinglish de Useful Llama. Las notas van dentro del propio enlace; esta página no guarda nada." },
+};
+const status = document.getElementById("status");
+function fail(msg) { status.textContent = msg; }
+function b64urlBytes(s) {
+  s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "=";
+  const bin = atob(s); const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+async function inflate(bytes) {
+  const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+  return await new Response(stream).text();
+}
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+(async () => {
+  const hash = decodeURIComponent(location.hash.slice(1));
+  const dot = hash.indexOf(".");
+  const code = dot > 0 ? hash.slice(0, dot) : "";
+  if (!TEXT[code]) return fail("This progress link looks incomplete.");
+  const t = TEXT[code];
+  document.documentElement.lang = code === "div" ? "es" : "en";
+  document.getElementById("title").textContent = t.title;
+  document.title = t.title + " · Useful Llama";
+  document.getElementById("privacy").textContent = t.privacy;
+  if (typeof DecompressionStream === "undefined") return fail("Please open this link in an up-to-date browser.");
+  let scores;
+  try {
+    const text = await inflate(b64urlBytes(hash.slice(dot + 1)));
+    scores = new Map(text.split(",").filter(Boolean).map(p => { const i = p.lastIndexOf(":"); return [p.slice(0, i), Math.max(0, Math.min(100, parseInt(p.slice(i + 1), 10) || 0))]; }));
+  } catch (e) { return fail("This progress link looks damaged."); }
+  if (!scores.size) return fail(t.none);
+  let course;
+  try { course = await (await fetch(code + "-lessons.json")).json(); } catch (e) { return fail("The lesson list couldn't be loaded. Please try again."); }
+  const all = [...scores.values()];
+  const avg = Math.round(all.reduce((a, b) => a + b, 0) / all.length);
+  const out = document.getElementById("out"); out.textContent = "";
+  const sum = el("div", "summary");
+  const s1 = el("div", "stat"); s1.append(el("b", null, String(scores.size)), el("span", null, t.lessons));
+  const s2 = el("div", "stat"); s2.append(el("b", null, avg + "%"), el("span", null, t.average));
+  sum.append(s1, s2); out.append(sum);
+  for (const u of course.units) {
+    const done = u.lessons.filter(l => scores.has(l.id));
+    if (!done.length) continue;
+    const box = el("section", "unit");
+    box.append(el("h2", null, (u.emoji ? u.emoji + " " : "") + u.title));
+    for (const l of done) {
+      const v = scores.get(l.id);
+      const row = el("div", "row" + (v === 100 ? " perfect" : ""));
+      const bar = el("div", "bar"); const fill = el("i"); fill.style.width = v + "%"; bar.append(fill);
+      row.append(el("span", null, l.title), bar, el("span", "pct", v + "%"));
+      box.append(row);
+    }
+    out.append(box);
+  }
+})();
+</script>
+</body>
+</html>
