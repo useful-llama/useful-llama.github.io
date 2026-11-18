@@ -10,7 +10,7 @@
 <header><a class="brand" href="../../">Useful Llama</a></header>
 <main>
 <h1>Diet &amp; DEXA: The Full Picture — Privacy Policy</h1>
-<p><strong>Version 1.0.</strong> In force from 18 November 2026. Web version: <a href="https://useful-llama.github.io/diet-and-dexa/privacy/">https://useful-llama.github.io/diet-and-dexa/privacy/</a>. Terms of use: <a href="../terms/">https://useful-llama.github.io/diet-and-dexa/terms/</a></p>
+<p><strong>Version 1.1.</strong> In force from 18 November 2026 (route ideas wording updated the same day). Web version: <a href="https://useful-llama.github.io/diet-and-dexa/privacy/">https://useful-llama.github.io/diet-and-dexa/privacy/</a>. Terms of use: <a href="../terms/">https://useful-llama.github.io/diet-and-dexa/terms/</a></p>
 <p>Diet &amp; DEXA: The Full Picture, by Useful Llama, is an app for tracking food, DEXA body-composition scans, exercise and (if you choose) fasting. Useful Llama is responsible for the information it receives to provide this app. Contact us about privacy or for help at <a href="mailto:useful.llama@gmail.com">useful.llama@gmail.com</a>.</p>
 <p><strong>In short:</strong> your diary stays on your phone. Useful Llama has no server of its own and no account system. There are no ads, no analytics and no selling or sharing of your data. Some features send information to other services only when you use them, as explained below.</p>
 
@@ -26,7 +26,7 @@
 <p>Location (precise or approximate) is used only while you use the app: during a GPS run you start (with a notification while it records) and for "Route ideas near you". Runs and routes stay on the phone and are not included in the Google backup.</p>
 <ul>
 <li>The run map is Google Maps (Maps SDK for Android). Showing it sends map requests for the area to Google, along with technical information the SDK collects, under <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
-<li>Route ideas send a position rounded to about 100 metres to the OpenStreetMap Overpass service to find nearby parks, tracks and paths. The suburb name is worked out on the phone.</li>
+<li>Route ideas: the suburb name is worked out by the phone's own location service (Android's geocoder, run by Google). With Claude connected, only that suburb name goes to Claude, which searches the web for real running spots, and the phone's geocoder then looks up each place's name to pin it on the map. Without Claude, a position rounded to about 100 metres is sent to the OpenStreetMap Overpass service to find nearby parks, tracks and paths.</li>
 </ul>
 
 <h2 id="claude">Optional Claude (your own Anthropic account)</h2>
