@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test our apps · Useful Llama</title>
+<meta name="description" content="Help test Useful Llama's Android apps before they reach the Play Store: what each app is like, with real screenshots.">
+<link rel="stylesheet" href="../style.css">
+<style>
+  main { max-width: 860px; }
+  .steps { background: var(--page); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px 12px 36px; }
+  .steps li { margin: 8px 0; }
+  .nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin: 16px 0 8px; }
+  .nav a { display: flex; align-items: center; gap: 8px; padding: 8px; border: 1px solid var(--line); border-radius: 12px;
+           text-decoration: none; color: var(--ink); font-size: 15px; line-height: 1.2; }
+  .nav img { border-radius: 9px; flex: none; }
+  .nav i { color: var(--muted); font-style: normal; font-size: 13px; }
+  .app { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 28px; scroll-margin-top: 12px; }
+  .head { display: flex; gap: 14px; align-items: center; }
+  .head h2 { margin: 0; font-size: 22px; }
+  .icon { border-radius: 14px; flex: none; }
+  .kind { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+  .tag { font-weight: 600; font-size: 18px; margin-bottom: 4px; }
+  .shots { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 0 10px;
+            -webkit-overflow-scrolling: touch; }
+  .shots a { flex: none; scroll-snap-align: start; }
+  .shots img { height: 340px; width: auto; display: block; border-radius: 12px; border: 1px solid var(--line); }
+  @media (max-width: 600px) { .shots img { height: 300px; } }
+  .shots img.wide { height: auto; width: min(604px, 84vw); }
+  .example { background: var(--page); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 10px 14px; margin: 14px 0; }
+  .example p { margin: 4px 0 0; }
+  .try-h { font-weight: 600; margin: 14px 0 0; }
+  .try-h + ul { margin-top: 4px; }
+  .small { color: var(--muted); font-size: 15px; }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 12px; }
+  .join { display: inline-block; background: var(--primary); color: #fff; font-weight: 700; padding: 12px 20px;
+           border-radius: 12px; text-decoration: none; }
+  @media (prefers-color-scheme: dark) { .join { background: #2d5bb3; } }
+  .soon { display: inline-block; border: 2px dashed var(--line); color: var(--muted); font-weight: 700; padding: 10px 18px; border-radius: 12px; }
+</style>
+</head>
+<body>
+<header><a class="brand" href="../">Useful Llama</a></header>
+<main>
+  <h1>Help test our apps</h1>
+  <p>Before Google lets a new app onto the Play Store for everyone, real people have to test it for 14 days.
+  Pick any apps you like the look of below. Each one shows what it is like, with real screenshots from the app.</p>
+
+  <h2>How to join</h2>
+  <ol class="steps">
+    <li><b>Join the tester group</b> (once is enough for every app): <a href="https://groups.google.com/g/ullama-app-testers">open the group</a> and press
+      <b>Join group</b>. It won't send you emails, and nobody in it can see your address.</li>
+    <li>On an app below, press <b>Become a tester</b>, then <b>Become a tester</b> again on Google's page.</li>
+    <li>When it says <b>You are a tester</b>, tap <b>download it on Google Play</b> and install the app.</li>
+  </ol>
+  <p class="small">Android phones only. Use the same Google account as your phone's Play Store. Please keep each
+  app installed for at least 14 days (that's the most important part), use it now and then, and tell me anything
+  confusing, broken or annoying: <a href="mailto:useful.llama@gmail.com">useful.llama@gmail.com</a>.</p>
+
+  <div class="nav">
+    <a href="#diet-and-dexa"><img src="img/diet-and-dexa/icon.webp" alt="" width="40" height="40">Diet &amp; DEXA</a>
+    <a href="#road-camera"><img src="img/road-camera/icon.webp" alt="" width="40" height="40">Road Camera</a>
+    <a href="#funspanol"><img src="img/funspanol/icon.webp" alt="" width="40" height="40">Funspañol</a>
+    <a href="#invoice-maker"><img src="img/invoice-maker/icon.webp" alt="" width="40" height="40">Invoice Maker</a>
+    <a href="#time-card"><img src="img/time-card/icon.webp" alt="" width="40" height="40">Time Card</a>
+    <a href="#cats-vs-llamas"><img src="img/cats-vs-llamas/icon.webp" alt="" width="40" height="40">Cats vs Llamas</a>
+    <a href="#hold-the-line"><img src="img/hold-the-line/icon.webp" alt="" width="40" height="40">Hold the Line</a>
+    <a href="#crimson-defiance"><img src="img/crimson-defiance/icon.webp" alt="" width="40" height="40">True RTS <i>soon</i></a>
+    <a href="#divertinglish"><img src="img/divertinglish/icon.webp" alt="" width="40" height="40">Divertinglish <i>soon</i></a>
+  </div>
+
+  <section class="app" id="diet-and-dexa">
+    <div class="head">
+      <img class="icon" src="img/diet-and-dexa/icon.webp" alt="" width="64" height="64">
+      <div><h2>Diet &amp; DEXA</h2><p class="kind">Health</p></div>
+    </div>
+    <p class="tag">Your food, your body scans and your exercise in one clear picture.</p>
+    <p>Point the camera at your plate and see calories, protein and every vitamin and mineral against Australian targets. Add a DEXA or InBody report and it explains each number in plain colours. Tell Dex, the fitness llama, what you ate or ask him anything.</p>
+    <div class="shots">
+      <a href="img/diet-and-dexa/shot-1.jpg"><img src="img/diet-and-dexa/shot-1.jpg" alt="Diet &amp; DEXA screenshot 1" width="340" height="680" loading="lazy"></a>
+      <a href="img/diet-and-dexa/shot-2.jpg"><img src="img/diet-and-dexa/shot-2.jpg" alt="Diet &amp; DEXA screenshot 2" width="340" height="680" loading="lazy"></a>
+      <a href="img/diet-and-dexa/shot-3.jpg"><img src="img/diet-and-dexa/shot-3.jpg" alt="Diet &amp; DEXA screenshot 3" width="340" height="680" loading="lazy"></a>
+      <a href="img/diet-and-dexa/shot-4.jpg"><img src="img/diet-and-dexa/shot-4.jpg" alt="Diet &amp; DEXA screenshot 4" width="340" height="680" loading="lazy"></a>
+      <a href="img/diet-and-dexa/shot-5.jpg"><img src="img/diet-and-dexa/shot-5.jpg" alt="Diet &amp; DEXA screenshot 5" width="340" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>Mia has just had her first DEXA scan and has no idea what “visceral fat 105 cm²” means. She photographs the report and the app shows where each number sits for her age. At lunch she snaps her plate and sees she is short on fibre for the day.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Log a few meals, with the food camera at least once</li><li>Add a scan report if you have one</li><li>Track a walk or a run</li></ul>
+    <p class="small">Everything is free for the first 59 days, so you won&#x27;t need to buy anything.</p>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.dietanddexa">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+  </section>
+
+  <section class="app" id="road-camera">
+    <div class="head">
+      <img class="icon" src="img/road-camera/icon.webp" alt="" width="64" height="64">
+      <div><h2>Road Camera</h2><p class="kind">Driving</p></div>
+    </div>
+    <p class="tag">Your phone is your dash cam.</p>
+    <p>Mount your phone, start recording while parked, and drive. Keep the clips that matter, and turn them into a tidy incident report with photos, a map and your own account, ready as a PDF.</p>
+    <div class="shots">
+      <a href="img/road-camera/shot-1.jpg"><img src="img/road-camera/shot-1.jpg" alt="Road Camera screenshot 1" width="340" height="680" loading="lazy"></a>
+      <a href="img/road-camera/shot-2.jpg"><img src="img/road-camera/shot-2.jpg" alt="Road Camera screenshot 2" width="340" height="680" loading="lazy"></a>
+      <a href="img/road-camera/shot-3.jpg"><img src="img/road-camera/shot-3.jpg" alt="Road Camera screenshot 3" width="340" height="680" loading="lazy"></a>
+      <a href="img/road-camera/shot-4.jpg"><img src="img/road-camera/shot-4.jpg" alt="Road Camera screenshot 4" width="340" height="680" loading="lazy"></a>
+      <a href="img/road-camera/shot-5.jpg"><img src="img/road-camera/shot-5.jpg" alt="Road Camera screenshot 5" width="340" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>Sam starts recording before the morning commute. A car runs a red light just ahead. Once he is parked, he saves that clip so it is never recorded over, and builds a report for his insurer with the clip&#x27;s photos and the map pin.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Record a drive (set it up while parked)</li><li>Save a clip and look through your footage</li><li>Start an incident report and export the PDF</li></ul>
+    <p class="small">Never touch the phone while driving. Testers get a free unlock code in the tester group.</p>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.roadcamera">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+  </section>
+
+  <section class="app" id="funspanol">
+    <div class="head">
+      <img class="icon" src="img/funspanol/icon.webp" alt="" width="64" height="64">
+      <div><h2>Funspañol</h2><p class="kind">Learn Spanish</p></div>
+    </div>
+    <p class="tag">Learn Spanish from the words you already know.</p>
+    <p>Lots of English words turn into Spanish with a simple pattern: information → información, university → universidad. Build on that with short lessons from beginner to advanced, chats with friendly neighbours, speaking practice and quick games.</p>
+    <div class="shots">
+      <a href="img/funspanol/shot-1.jpg"><img src="img/funspanol/shot-1.jpg" alt="Funspañol screenshot 1" width="382" height="680" loading="lazy"></a>
+      <a href="img/funspanol/shot-2.jpg"><img src="img/funspanol/shot-2.jpg" alt="Funspañol screenshot 2" width="382" height="680" loading="lazy"></a>
+      <a href="img/funspanol/shot-3.jpg"><img src="img/funspanol/shot-3.jpg" alt="Funspañol screenshot 3" width="382" height="680" loading="lazy"></a>
+      <a href="img/funspanol/shot-4.jpg"><img src="img/funspanol/shot-4.jpg" alt="Funspañol screenshot 4" width="382" height="680" loading="lazy"></a>
+      <a href="img/funspanol/shot-5.jpg"><img src="img/funspanol/shot-5.jpg" alt="Funspañol screenshot 5" width="382" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>Priya is going to Mexico in two months. On the bus she does a ten-minute lesson, answers a neighbour&#x27;s question out loud, and finishes with a lightning round of words she saved yesterday.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Do a few lessons, starting from Lo esencial</li><li>Try a speaking activity</li><li>Play one of the games</li></ul>
+    <p class="small">Testers get a free unlock code in the tester group.</p>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.funefficientlanguage">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+  </section>
+
+  <section class="app" id="invoice-maker">
+    <div class="head">
+      <img class="icon" src="img/invoice-maker/icon.webp" alt="" width="64" height="64">
+      <div><h2>Invoice Maker</h2><p class="kind">Business</p></div>
+    </div>
+    <p class="tag">Invoices, estimates and contracts on your phone.</p>
+    <p>Make a PDF invoice or estimate in a minute, with your saved clients and rates. See what is paid, unpaid or overdue, record expenses with receipt photos, and export reports to Excel at tax time.</p>
+    <div class="shots">
+      <a href="img/invoice-maker/shot-1.jpg"><img src="img/invoice-maker/shot-1.jpg" alt="Invoice Maker screenshot 1" width="340" height="680" loading="lazy"></a>
+      <a href="img/invoice-maker/shot-2.jpg"><img src="img/invoice-maker/shot-2.jpg" alt="Invoice Maker screenshot 2" width="340" height="680" loading="lazy"></a>
+      <a href="img/invoice-maker/shot-3.jpg"><img src="img/invoice-maker/shot-3.jpg" alt="Invoice Maker screenshot 3" width="340" height="680" loading="lazy"></a>
+      <a href="img/invoice-maker/shot-4.jpg"><img src="img/invoice-maker/shot-4.jpg" alt="Invoice Maker screenshot 4" width="340" height="680" loading="lazy"></a>
+      <a href="img/invoice-maker/shot-5.jpg"><img src="img/invoice-maker/shot-5.jpg" alt="Invoice Maker screenshot 5" width="340" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>Tom, a tiler, finishes a bathroom job. Before he packs up the van he picks the client, adds the hours and materials, checks the PDF and sends the invoice. In June he exports the year&#x27;s invoices and expenses for his accountant.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Make a sample invoice and look at the PDF</li><li>Turn an estimate into an invoice</li><li>Add an expense with a photo</li></ul>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.invoicemaker">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+  </section>
+
+  <section class="app" id="time-card">
+    <div class="head">
+      <img class="icon" src="img/time-card/icon.webp" alt="" width="64" height="64">
+      <div><h2>Time Card</h2><p class="kind">Work</p></div>
+    </div>
+    <p class="tag">Your hours and duties, ready for your boss.</p>
+    <p>Add what you did each day and when you started and finished. Time Card adds up the hours, any overtime and breaks, and makes a clear time card you can share as a PDF.</p>
+    <div class="shots">
+      <a href="img/time-card/shot-1.jpg"><img src="img/time-card/shot-1.jpg" alt="Time Card screenshot 1" width="340" height="680" loading="lazy"></a>
+      <a href="img/time-card/shot-2.jpg"><img src="img/time-card/shot-2.jpg" alt="Time Card screenshot 2" width="340" height="680" loading="lazy"></a>
+      <a href="img/time-card/shot-3.jpg"><img src="img/time-card/shot-3.jpg" alt="Time Card screenshot 3" width="340" height="680" loading="lazy"></a>
+      <a href="img/time-card/shot-4.jpg"><img src="img/time-card/shot-4.jpg" alt="Time Card screenshot 4" width="340" height="680" loading="lazy"></a>
+      <a href="img/time-card/shot-5.jpg"><img src="img/time-card/shot-5.jpg" alt="Time Card screenshot 5" width="340" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>Lena works casual shifts at two cafés. Each evening she adds her start and finish times and what she did. At the end of the fortnight she sends each manager a clean PDF time card.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Add a few days of sample work</li><li>Try the check-in and check-out buttons</li><li>Export and share a time card</li></ul>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.timecard">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+  </section>
+
+  <section class="app" id="cats-vs-llamas">
+    <div class="head">
+      <img class="icon" src="img/cats-vs-llamas/icon.webp" alt="" width="64" height="64">
+      <div><h2>Cats vs Llamas</h2><p class="kind">Game</p></div>
+    </div>
+    <p class="tag">Cute cats or fluffy llamas, in turn-based battles.</p>
+    <p>Pick a side and lead your little army across a field of hexagons: knights, wizards, archers, ninjas and more, each with their own moves. Between battles, grow a 3D city and level up your heroes. Nobody really gets hurt: a beaten llama just stomps off in a huff.</p>
+    <div class="shots">
+      <a href="img/cats-vs-llamas/shot-1.jpg"><img src="img/cats-vs-llamas/shot-1.jpg" alt="Cats vs Llamas screenshot 1" width="382" height="680" loading="lazy"></a>
+      <a href="img/cats-vs-llamas/shot-2.jpg"><img src="img/cats-vs-llamas/shot-2.jpg" alt="Cats vs Llamas screenshot 2" width="1209" height="680" class="wide" loading="lazy"></a>
+      <a href="img/cats-vs-llamas/shot-3.jpg"><img src="img/cats-vs-llamas/shot-3.jpg" alt="Cats vs Llamas screenshot 3" width="382" height="680" loading="lazy"></a>
+      <a href="img/cats-vs-llamas/shot-4.jpg"><img src="img/cats-vs-llamas/shot-4.jpg" alt="Cats vs Llamas screenshot 4" width="382" height="680" loading="lazy"></a>
+      <a href="img/cats-vs-llamas/shot-5.jpg"><img src="img/cats-vs-llamas/shot-5.jpg" alt="Cats vs Llamas screenshot 5" width="382" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>On the train home, Alex plays a battle: Sir Paws the knight cat shields the archers while the wizard splashes the llamas. Back in town he builds another house, so his squad can grow.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Play a few battles</li><li>Build up your city</li><li>Equip a hero with new gear</li></ul>
+    <p class="small">Testers get a free unlock code in the tester group.</p>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.catsvsllamas">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+  </section>
+
+  <section class="app" id="hold-the-line">
+    <div class="head">
+      <img class="icon" src="img/hold-the-line/icon.webp" alt="" width="64" height="64">
+      <div><h2>Crimson Defiance: Hold the Line</h2><p class="kind">Game</p></div>
+    </div>
+    <p class="tag">Tower defence on Mars: hold 50 waves.</p>
+    <p>The enemy is coming down the road and your HQ is at the end of it. Build towers beside the road, place soldiers and tanks, wall the road off, and stop every wave. Play either side, on four battlefields, with a boss every tenth wave.</p>
+    <div class="shots">
+      <a href="img/hold-the-line/shot-1.jpg"><img src="img/hold-the-line/shot-1.jpg" alt="Crimson Defiance: Hold the Line screenshot 1" width="382" height="680" loading="lazy"></a>
+      <a href="img/hold-the-line/shot-2.jpg"><img src="img/hold-the-line/shot-2.jpg" alt="Crimson Defiance: Hold the Line screenshot 2" width="382" height="680" loading="lazy"></a>
+      <a href="img/hold-the-line/shot-3.jpg"><img src="img/hold-the-line/shot-3.jpg" alt="Crimson Defiance: Hold the Line screenshot 3" width="382" height="680" loading="lazy"></a>
+      <a href="img/hold-the-line/shot-4.jpg"><img src="img/hold-the-line/shot-4.jpg" alt="Crimson Defiance: Hold the Line screenshot 4" width="382" height="680" loading="lazy"></a>
+      <a href="img/hold-the-line/shot-5.jpg"><img src="img/hold-the-line/shot-5.jpg" alt="Crimson Defiance: Hold the Line screenshot 5" width="382" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>With ten minutes to spare, Jordan picks the Solar Legion, puts a laser tower on the first bend and a wall across the road, and sees how many waves they can hold before the titan arrives.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Play some waves on each side</li><li>Upgrade a tower and build a wall</li><li>Tell me which waves feel too easy or too hard</li></ul>
+    <p class="small">In-game coins are earned in each run. Watching an ad is always your choice, never forced.</p>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.holdtheline">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+  </section>
+
+  <section class="app" id="crimson-defiance">
+    <div class="head">
+      <img class="icon" src="img/crimson-defiance/icon.webp" alt="" width="64" height="64">
+      <div><h2>Crimson Defiance: True RTS</h2><p class="kind">Game</p></div>
+    </div>
+    <p class="tag">A real-time strategy war for Mars, built for your phone.</p>
+    <p>Build a base, harvest Dark Grain and power, train soldiers, roll out tanks and hover craft, and lead your army across the red planet. Two campaigns with comic-panel stories, skirmish, a map editor, and battles with friends on the same Wi-Fi. No ads.</p>
+    <div class="shots">
+      <a href="img/crimson-defiance/shot-1.jpg"><img src="img/crimson-defiance/shot-1.jpg" alt="Crimson Defiance: True RTS screenshot 1" width="1209" height="680" class="wide" loading="lazy"></a>
+      <a href="img/crimson-defiance/shot-2.jpg"><img src="img/crimson-defiance/shot-2.jpg" alt="Crimson Defiance: True RTS screenshot 2" width="1209" height="680" class="wide" loading="lazy"></a>
+      <a href="img/crimson-defiance/shot-3.jpg"><img src="img/crimson-defiance/shot-3.jpg" alt="Crimson Defiance: True RTS screenshot 3" width="1209" height="680" class="wide" loading="lazy"></a>
+      <a href="img/crimson-defiance/shot-4.jpg"><img src="img/crimson-defiance/shot-4.jpg" alt="Crimson Defiance: True RTS screenshot 4" width="1209" height="680" class="wide" loading="lazy"></a>
+      <a href="img/crimson-defiance/shot-5.jpg"><img src="img/crimson-defiance/shot-5.jpg" alt="Crimson Defiance: True RTS screenshot 5" width="1209" height="680" class="wide" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p>Riley plays the Prometheans&#x27; first mission on the couch: builds up a base, holds the walls of New Red City, then sends the tanks out to strike back.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li>Play the first mission on each side</li><li>Try a skirmish on a small map</li><li>Tell me if anything is slow on your phone</li></ul>
+    <p class="small">A big download (about 2.4 GB), so use Wi-Fi and check your phone has room.</p>
+    <div class="cta"><span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span></div>
+  </section>
+
+  <section class="app" id="divertinglish">
+    <div class="head">
+      <img class="icon" src="img/divertinglish/icon.webp" alt="" width="64" height="64">
+      <div><h2>Divertinglish</h2><p class="kind">Learn English (for Spanish speakers)</p></div>
+    </div>
+    <p class="tag" lang="es">Aprende inglés con explicaciones en español.</p>
+    <p>Funspañol&#x27;s twin for Spanish speakers: lessons from A1 to C2, chats with five friendly neighbours, speaking practice and games, all explained in Spanish. (Para hispanohablantes que aprenden inglés.)</p>
+    <div class="shots">
+      <a href="img/divertinglish/shot-1.jpg"><img src="img/divertinglish/shot-1.jpg" alt="Divertinglish screenshot 1" width="382" height="680" loading="lazy"></a>
+      <a href="img/divertinglish/shot-2.jpg"><img src="img/divertinglish/shot-2.jpg" alt="Divertinglish screenshot 2" width="382" height="680" loading="lazy"></a>
+      <a href="img/divertinglish/shot-3.jpg"><img src="img/divertinglish/shot-3.jpg" alt="Divertinglish screenshot 3" width="382" height="680" loading="lazy"></a>
+      <a href="img/divertinglish/shot-4.jpg"><img src="img/divertinglish/shot-4.jpg" alt="Divertinglish screenshot 4" width="382" height="680" loading="lazy"></a>
+      <a href="img/divertinglish/shot-5.jpg"><img src="img/divertinglish/shot-5.jpg" alt="Divertinglish screenshot 5" width="382" height="680" loading="lazy"></a>
+    </div>
+    <div class="example"><b>Picture this</b><p lang="es">Lucía practica cinco minutos cada mañana: una lección corta, una charla con Maya y una partida de Word Rain con sus propias palabras.</p></div>
+    <p class="try-h">What to try</p>
+    <ul><li lang="es">Haz algunas lecciones</li><li lang="es">Prueba una actividad para hablar</li><li lang="es">Juega a uno de los juegos</li></ul>
+    <div class="cta"><span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span></div>
+  </section>
+</main>
+<footer>Made by Useful Llama · <a href="../">All apps and privacy policies</a></footer>
+</body>
+</html>
