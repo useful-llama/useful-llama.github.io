@@ -4,7 +4,8 @@ One card per app: icon, what it is, a short "picture this" example, real screens
 what to try, and the Become a tester link. Each card has its own anchor, e.g. testers/#road-camera.
 
 When Google approves an app's closed test, set ready=True and run:   py -I testers/build_testers.py
-Screenshots live in testers/img/<slug>/ (icon.webp, shot-1.jpg ...), taken from the app's Play listing.
+Screenshots live in testers/img/<slug>/ (icon.webp or icon.jpg, shot-1.jpg ...), from the app's Play listing
+or, when the app's icon has changed since, its newest store icon (Funspañol: Divertinglish/design/branding/icons-scene-20261117).
 Never put unlock codes on this page: it is public. Codes stay in the members-only group post.
 """
 import html
@@ -75,7 +76,7 @@ APPS = [
          tryit=["Play a few battles", "Build up your city", "Equip a hero with new gear"],
          note="Testers get a free unlock code in the tester group."),
     dict(slug="hold-the-line", name="Crimson Defiance: Hold the Line", pkg="com.usefulllama.holdtheline",
-         ready=True, kind="Game",
+         nav="Hold the Line", ready=True, kind="Game",
          tag="Tower defence on Mars: hold 50 waves.",
          about="The enemy is coming down the road and your HQ is at the end of it. Build towers beside the road, "
                "place soldiers and tanks, wall the road off, and stop every wave. Play either side, on four "
@@ -86,7 +87,7 @@ APPS = [
                 "Tell me which waves feel too easy or too hard"],
          note="In-game coins are earned in each run. Watching an ad is always your choice, never forced."),
     dict(slug="crimson-defiance", name="Crimson Defiance: True RTS", pkg="com.usefulllama.crimsondefiance",
-         ready=False, kind="Game",
+         nav="Crimson Defiance", ready=True, kind="Game",
          tag="A real-time strategy war for Mars, built for your phone.",
          about="Build a base, harvest Dark Grain and power, train soldiers, roll out tanks and hover craft, and "
                "lead your army across the red planet. Two campaigns with comic-panel stories, skirmish, a map "
@@ -96,7 +97,7 @@ APPS = [
          tryit=["Play the first mission on each side", "Try a skirmish on a small map",
                 "Tell me if anything is slow on your phone"],
          note="A big download (about 2.4 GB), so use Wi-Fi and check your phone has room."),
-    dict(slug="divertinglish", name="Divertinglish", pkg="com.usefulllama.divertinglish", ready=False,
+    dict(slug="divertinglish", name="Divertinglish", pkg="com.usefulllama.divertinglish", ready=True,
          kind="Learn English (for Spanish speakers)", lang="es",
          tag="Aprende inglés con explicaciones en español.",
          about="Funspañol's twin for Spanish speakers: lessons from A1 to C2, chats with five friendly "
@@ -125,6 +126,11 @@ def jpeg_size(path):
     raise ValueError("no JPEG frame header in " + path)
 
 
+def icon(slug):
+    d = os.path.join(os.path.dirname(os.path.abspath(__file__)), "img", slug)
+    return next(f for f in sorted(os.listdir(d)) if f.startswith("icon."))
+
+
 def card(a):
     d = os.path.join(os.path.dirname(os.path.abspath(__file__)), "img", a["slug"])
     shots = sorted((f for f in os.listdir(d) if f.startswith("shot-")), key=lambda f: int(f[5:].split(".")[0]))
@@ -143,7 +149,7 @@ def card(a):
     note = '\n    <p class="small">%s</p>' % esc(a["note"]) if a["note"] else ""
     return """  <section class="app" id="{slug}">
     <div class="head">
-      <img class="icon" src="img/{slug}/icon.webp" alt="" width="64" height="64">
+      <img class="icon" src="img/{slug}/{icon}" alt="" width="64" height="64">
       <div><h2>{name}</h2><p class="kind">{kind}</p></div>
     </div>
     <p class="tag"{lang}>{tag}</p>
@@ -156,14 +162,14 @@ def card(a):
     <ul>{tries}</ul>{note}
     <div class="cta">{join}</div>
     <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
-  </section>""".format(slug=a["slug"], name=esc(a["name"]), kind=esc(a["kind"]), lang=lang, tag=esc(a["tag"]),
+  </section>""".format(slug=a["slug"], name=esc(a["name"]), kind=esc(a["kind"]), lang=lang, tag=esc(a["tag"]), icon=icon(a["slug"]),
                        about=esc(a["about"]), imgs=imgs, example=esc(a["example"]), tries=tries, note=note,
                        join=join)
 
 
 def page():
-    nav = "\n".join('    <a href="#%s"><img src="img/%s/icon.webp" alt="" width="40" height="40">%s%s</a>'
-                    % (a["slug"], a["slug"], esc(a["name"].replace("Crimson Defiance: ", "")),
+    nav = "\n".join('    <a href="#%s"><img src="img/%s/%s" alt="" width="40" height="40">%s%s</a>'
+                    % (a["slug"], a["slug"], icon(a["slug"]), esc(a.get("nav", a["name"])),
                        "" if a["ready"] else " <i>soon</i>") for a in APPS)
     cards = "\n\n".join(card(a) for a in APPS)
     return """<!doctype html>
