@@ -36,13 +36,18 @@
   .join { display: inline-block; background: var(--primary); color: #fff; font-weight: 700; padding: 12px 20px;
            border-radius: 12px; text-decoration: none; }
   @media (prefers-color-scheme: dark) { .join { background: #2d5bb3; } }
+  .back { margin: 16px 0 0; font-size: 15px; }
+  header.bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 5; }
+  header.bar .all { color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,.5);
+                    border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+  .app, #top { scroll-margin-top: 72px; }
   .soon { display: inline-block; border: 2px dashed var(--line); color: var(--muted); font-weight: 700; padding: 10px 18px; border-radius: 12px; }
 </style>
 </head>
 <body>
-<header><a class="brand" href="../">Useful Llama</a></header>
+<header class="bar"><a class="brand" href="../">Useful Llama</a><a class="all" href="#top">How to join · All apps</a></header>
 <main>
-  <h1>Help test our apps</h1>
+  <h1 id="top">Help test our apps</h1>
   <p>Before Google lets a new app onto the Play Store for everyone, real people have to test it for 14 days.
   Pick any apps you like the look of below. Each one shows what it is like, with real screenshots from the app.</p>
 
@@ -87,7 +92,8 @@
     <p class="try-h">What to try</p>
     <ul><li>Log a few meals, with the food camera at least once</li><li>Add a scan report if you have one</li><li>Track a walk or a run</li></ul>
     <p class="small">Everything is free for the first 59 days, so you won&#x27;t need to buy anything.</p>
-    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.dietanddexa">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.dietanddexa">Become a tester</a><span class="small">New here? <a href="https://groups.google.com/g/ullama-app-testers">Join the tester group</a> first.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="road-camera">
@@ -108,7 +114,8 @@
     <p class="try-h">What to try</p>
     <ul><li>Record a drive (set it up while parked)</li><li>Save a clip and look through your footage</li><li>Start an incident report and export the PDF</li></ul>
     <p class="small">Never touch the phone while driving. Testers get a free unlock code in the tester group.</p>
-    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.roadcamera">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.roadcamera">Become a tester</a><span class="small">New here? <a href="https://groups.google.com/g/ullama-app-testers">Join the tester group</a> first.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="funspanol">
@@ -129,7 +136,8 @@
     <p class="try-h">What to try</p>
     <ul><li>Do a few lessons, starting from Lo esencial</li><li>Try a speaking activity</li><li>Play one of the games</li></ul>
     <p class="small">Testers get a free unlock code in the tester group.</p>
-    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.funefficientlanguage">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.funefficientlanguage">Become a tester</a><span class="small">New here? <a href="https://groups.google.com/g/ullama-app-testers">Join the tester group</a> first.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="invoice-maker">
@@ -149,7 +157,8 @@
     <div class="example"><b>Picture this</b><p>Tom, a tiler, finishes a bathroom job. Before he packs up the van he picks the client, adds the hours and materials, checks the PDF and sends the invoice. In June he exports the year&#x27;s invoices and expenses for his accountant.</p></div>
     <p class="try-h">What to try</p>
     <ul><li>Make a sample invoice and look at the PDF</li><li>Turn an estimate into an invoice</li><li>Add an expense with a photo</li></ul>
-    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.invoicemaker">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.invoicemaker">Become a tester</a><span class="small">New here? <a href="https://groups.google.com/g/ullama-app-testers">Join the tester group</a> first.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="time-card">
@@ -169,7 +178,8 @@
     <div class="example"><b>Picture this</b><p>Lena works casual shifts at two cafés. Each evening she adds her start and finish times and what she did. At the end of the fortnight she sends each manager a clean PDF time card.</p></div>
     <p class="try-h">What to try</p>
     <ul><li>Add a few days of sample work</li><li>Try the check-in and check-out buttons</li><li>Export and share a time card</li></ul>
-    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.timecard">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.timecard">Become a tester</a><span class="small">New here? <a href="https://groups.google.com/g/ullama-app-testers">Join the tester group</a> first.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="cats-vs-llamas">
@@ -190,7 +200,8 @@
     <p class="try-h">What to try</p>
     <ul><li>Play a few battles</li><li>Build up your city</li><li>Equip a hero with new gear</li></ul>
     <p class="small">Testers get a free unlock code in the tester group.</p>
-    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.catsvsllamas">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.catsvsllamas">Become a tester</a><span class="small">New here? <a href="https://groups.google.com/g/ullama-app-testers">Join the tester group</a> first.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="hold-the-line">
@@ -211,7 +222,8 @@
     <p class="try-h">What to try</p>
     <ul><li>Play some waves on each side</li><li>Upgrade a tower and build a wall</li><li>Tell me which waves feel too easy or too hard</li></ul>
     <p class="small">In-game coins are earned in each run. Watching an ad is always your choice, never forced.</p>
-    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.holdtheline">Become a tester</a><span class="small">Join the group first (step 1 above).</span></div>
+    <div class="cta"><a class="join" href="https://play.google.com/apps/testing/com.usefulllama.holdtheline">Become a tester</a><span class="small">New here? <a href="https://groups.google.com/g/ullama-app-testers">Join the tester group</a> first.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="crimson-defiance">
@@ -233,6 +245,7 @@
     <ul><li>Play the first mission on each side</li><li>Try a skirmish on a small map</li><li>Tell me if anything is slow on your phone</li></ul>
     <p class="small">A big download (about 2.4 GB), so use Wi-Fi and check your phone has room.</p>
     <div class="cta"><span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 
   <section class="app" id="divertinglish">
@@ -253,6 +266,7 @@
     <p class="try-h">What to try</p>
     <ul><li lang="es">Haz algunas lecciones</li><li lang="es">Prueba una actividad para hablar</li><li lang="es">Juega a uno de los juegos</li></ul>
     <div class="cta"><span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span></div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>
 </main>
 <footer>Made by Useful Llama · <a href="../">All apps and privacy policies</a></footer>

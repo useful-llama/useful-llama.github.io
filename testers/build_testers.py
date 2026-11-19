@@ -137,7 +137,7 @@ def card(a):
     tries = "".join("<li%s>%s</li>" % (lang, esc(t)) for t in a["tryit"])
     if a["ready"]:
         join = ('<a class="join" href="https://play.google.com/apps/testing/%s">Become a tester</a>'
-                '<span class="small">Join the group first (step 1 above).</span>' % a["pkg"])
+                '<span class="small">New here? <a href="%s">Join the tester group</a> first.</span>' % (a["pkg"], GROUP))
     else:
         join = '<span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span>'
     note = '\n    <p class="small">%s</p>' % esc(a["note"]) if a["note"] else ""
@@ -155,6 +155,7 @@ def card(a):
     <p class="try-h">What to try</p>
     <ul>{tries}</ul>{note}
     <div class="cta">{join}</div>
+    <p class="back"><a href="#top">↑ How to join and all the apps</a></p>
   </section>""".format(slug=a["slug"], name=esc(a["name"]), kind=esc(a["kind"]), lang=lang, tag=esc(a["tag"]),
                        about=esc(a["about"]), imgs=imgs, example=esc(a["example"]), tries=tries, note=note,
                        join=join)
@@ -203,13 +204,18 @@ def page():
   .join {{ display: inline-block; background: var(--primary); color: #fff; font-weight: 700; padding: 12px 20px;
            border-radius: 12px; text-decoration: none; }}
   @media (prefers-color-scheme: dark) {{ .join {{ background: #2d5bb3; }} }}
+  .back {{ margin: 16px 0 0; font-size: 15px; }}
+  header.bar {{ display: flex; justify-content: space-between; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 5; }}
+  header.bar .all {{ color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,.5);
+                    border-radius: 999px; padding: 6px 12px; white-space: nowrap; }}
+  .app, #top {{ scroll-margin-top: 72px; }}
   .soon {{ display: inline-block; border: 2px dashed var(--line); color: var(--muted); font-weight: 700; padding: 10px 18px; border-radius: 12px; }}
 </style>
 </head>
 <body>
-<header><a class="brand" href="../">Useful Llama</a></header>
+<header class="bar"><a class="brand" href="../">Useful Llama</a><a class="all" href="#top">How to join · All apps</a></header>
 <main>
-  <h1>Help test our apps</h1>
+  <h1 id="top">Help test our apps</h1>
   <p>Before Google lets a new app onto the Play Store for everyone, real people have to test it for 14 days.
   Pick any apps you like the look of below. Each one shows what it is like, with real screenshots from the app.</p>
 
