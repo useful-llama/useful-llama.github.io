@@ -24,7 +24,7 @@ APPS = [
                  "she snaps her plate and sees she is short on fibre for the day.",
          tryit=["Log a few meals, with the food camera at least once", "Add a scan report if you have one",
                 "Track a walk or a run"],
-         note="Everything is free for the first 59 days, so you won't need to buy anything."),
+         note="Everything is free for the first 14 days, so you won't need to buy anything."),
     dict(slug="road-camera", name="Road Camera", pkg="com.usefulllama.roadcamera", ready=True, kind="Driving",
          tag="Your phone is your dash cam.",
          about="Mount your phone, start recording while parked, and drive. Keep the clips that matter, and turn "
@@ -142,11 +142,13 @@ def card(a):
         for i, f in enumerate(shots, 1))
     tries = "".join("<li%s>%s</li>" % (lang, esc(t)) for t in a["tryit"])
     if a["ready"]:
+        # Joey 22 Nov 2026: Open in Google Play is a button the same size and shape as Become a tester, right
+        # under it, and the New here line goes under both.
         join = ('<a class="join" href="https://play.google.com/apps/testing/%s">Become a tester</a>'
+                '<a class="join store" href="https://play.google.com/store/apps/details?id=%s">Open in Google Play</a>'
+                '<span class="small">Google Play opens it once you\'ve joined the test.</span>'
                 '<span class="small">New here? <a href="%s">Join the tester group</a> first.</span>'
-                # Joey 22 Nov 2026: the direct Play listing under Become a tester
-                '<span class="small store"><a href="https://play.google.com/store/apps/details?id=%s">Open in Google Play</a>'
-                ' (it opens once you\'ve joined the test)</span>' % (a["pkg"], GROUP, a["pkg"]))
+                % (a["pkg"], a["pkg"], GROUP))
     else:
         join = '<span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span>'
     note = '\n    <p class="small">%s</p>' % esc(a["note"]) if a["note"] else ""
@@ -209,11 +211,13 @@ def page():
   .try-h {{ font-weight: 600; margin: 14px 0 0; }}
   .try-h + ul {{ margin-top: 4px; }}
   .small {{ color: var(--muted); font-size: 15px; }}
-  .cta {{ display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 12px; }}
-  .join {{ display: inline-block; background: var(--primary); color: #fff; font-weight: 700; padding: 12px 20px;
+  .cta {{ display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 12px; }}
+  .join {{ display: inline-block; box-sizing: border-box; width: 240px; max-width: 100%; text-align: center;
+           background: var(--primary); color: #fff; font-weight: 700; padding: 12px 20px;
            border-radius: 12px; text-decoration: none; }}
   @media (prefers-color-scheme: dark) {{ .join {{ background: #2d5bb3; }} }}
-  .store {{ flex-basis: 100%; }}
+  .cta .join.store {{ margin-top: 0; }}
+  .cta .join.store + .small {{ margin-top: -6px; font-size: 13px; }}
   .back {{ margin: 16px 0 0; font-size: 15px; }}
   header.bar {{ display: flex; justify-content: space-between; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 5; }}
   header.bar .all {{ color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,.5);
