@@ -143,7 +143,10 @@ def card(a):
     tries = "".join("<li%s>%s</li>" % (lang, esc(t)) for t in a["tryit"])
     if a["ready"]:
         join = ('<a class="join" href="https://play.google.com/apps/testing/%s">Become a tester</a>'
-                '<span class="small">New here? <a href="%s">Join the tester group</a> first.</span>' % (a["pkg"], GROUP))
+                '<span class="small">New here? <a href="%s">Join the tester group</a> first.</span>'
+                # Joey 22 Nov 2026: the direct Play listing under Become a tester
+                '<span class="small store"><a href="https://play.google.com/store/apps/details?id=%s">Open in Google Play</a>'
+                ' (it opens once you\'ve joined the test)</span>' % (a["pkg"], GROUP, a["pkg"]))
     else:
         join = '<span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span>'
     note = '\n    <p class="small">%s</p>' % esc(a["note"]) if a["note"] else ""
@@ -210,6 +213,7 @@ def page():
   .join {{ display: inline-block; background: var(--primary); color: #fff; font-weight: 700; padding: 12px 20px;
            border-radius: 12px; text-decoration: none; }}
   @media (prefers-color-scheme: dark) {{ .join {{ background: #2d5bb3; }} }}
+  .store {{ flex-basis: 100%; }}
   .back {{ margin: 16px 0 0; font-size: 15px; }}
   header.bar {{ display: flex; justify-content: space-between; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 5; }}
   header.bar .all {{ color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,.5);
