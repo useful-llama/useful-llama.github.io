@@ -17,7 +17,7 @@ APPS = [
     dict(slug="diet-and-dexa", name="Diet & DEXA", pkg="com.usefulllama.dietanddexa", ready=True, kind="Health",
          tag="Your food, your body scans and your exercise in one clear picture.",
          about="Point the camera at your plate and see calories, protein and every vitamin and mineral against "
-               "Australian targets. Add a DEXA or InBody report and it explains each number in plain colours. "
+               "Australian targets. Add a DXA or body-composition scan report and it explains each number in plain colours. "
                "Tell Dex, the fitness llama, what you ate or ask him anything.",
          example="Mia has just had her first DEXA scan and has no idea what “visceral fat 105 cm²” "
                  "means. She photographs the report and the app shows where each number sits for her age. At lunch "
