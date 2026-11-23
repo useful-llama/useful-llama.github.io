@@ -254,7 +254,7 @@ def page():
   </ol>
   <p class="small">Android phones only. Use the same Google account as your phone's Play Store. Please keep each
   app installed for at least 14 days (that's the most important part), use it now and then, and tell me anything
-  confusing, broken or annoying: <a href="mailto:useful.llama@gmail.com">useful.llama@gmail.com</a>.</p>
+  confusing, broken or annoying: <a href="mailto:useful.llamita@gmail.com">useful.llamita@gmail.com</a>.</p>
 
   <div class="nav">
 {nav}
