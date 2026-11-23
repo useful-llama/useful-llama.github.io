@@ -107,6 +107,18 @@ APPS = [
                  "y una partida de Word Rain con sus propias palabras.",
          tryit=["Haz algunas lecciones", "Prueba una actividad para hablar", "Juega a uno de los juegos"],
          note=""),
+    dict(slug="pencil-pal", name="Pencil Pal: Learn to Write", pkg="com.usefulllama.pencilpal", nav="Pencil Pal",
+         ready=True, kind="Learn to write",
+         tag="Learn to write every letter and number with your finger.",
+         about="A cheerful pencil shows each letter big across the screen, says how it sounds and guides your "
+               "finger, in English or Spanish. Pick simple print, print with little tails or joined cursive. "
+               "Every try gets an honest grade from D to A+, with confetti for good work and kind words when "
+               "it isn't there yet.",
+         example="Noor is five and learning the alphabet at the kitchen table. Today's letter is B. The pencil "
+                 "shows the way, a small finger follows it, and up pops a gold badge and a picture of a bee.",
+         tryit=["Trace a few letters and numbers", "Switch to Spanish or a harder handwriting level",
+                "Tell me if any grade feels unfair"],
+         note="No ads, no accounts, no purchases and no internet needed."),
 ]
 
 
