@@ -18,12 +18,13 @@ APPS = [
          tag="Your food, your body scans and your exercise in one clear picture.",
          about="Point the camera at your plate and see calories, protein and every vitamin and mineral against "
                "Australian targets. Add a DXA or body-composition scan report and it explains each number in plain colours. "
-               "Tell Dex, the fitness llama, what you ate or ask him anything.",
+               "Snap a treadmill or bike screen and it works out your workout's calories. Tell Dex, the fitness cuy "
+               "(a guinea pig), what you ate or ask him anything.",
          example="Mia has just had her first DEXA scan and has no idea what “visceral fat 105 cm²” "
                  "means. She photographs the report and the app shows where each number sits for her age. At lunch "
                  "she snaps her plate and sees she is short on fibre for the day.",
          tryit=["Log a few meals, with the food camera at least once", "Add a scan report if you have one",
-                "Track a walk or a run"],
+                "Photograph a gym machine's screen after a workout, or track a walk or a run"],
          note="Everything is free for the first 14 days, so you won't need to buy anything."),
     dict(slug="road-camera", name="Road Camera", pkg="com.usefulllama.roadcamera", ready=True, kind="Driving",
          tag="Your phone is your dash cam.",
