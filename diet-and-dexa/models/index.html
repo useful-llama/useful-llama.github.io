@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diet &amp; DEXA: food check files (CC BY-SA 3.0)</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<header><a class="brand" href="../../">Useful Llamita</a></header>
+<main>
+<h1>Diet &amp; DEXA: the whole-photo food check</h1>
+<p>These two small files are the part of the Diet &amp; DEXA app that decides whether a photo shows any food at all. They were trained in part on
+front-of-packet photos from <a href="https://world.openfoodfacts.org/">Open Food Facts</a>, shared by its contributors under the
+<a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0</a> licence, so we share these files under the same
+licence. The photos themselves are not included. Brand names and packet artwork belong to their owners.</p>
+<table>
+<tr><th>File</th><th>Size</th><th>SHA-256</th></tr>
+<tr><td><a href="food_gate_small.bin">food_gate_small.bin</a></td><td>132,384 bytes</td><td><code>1180eebac935334412d8edd25d15d3503334c5f05bed564124d807f15be2ed9c</code></td></tr>
+<tr><td><a href="food_gate_large.bin">food_gate_large.bin</a></td><td>124,192 bytes</td><td><code>305ed541438c991d57b8a58de28af8810f9d5c2fe5c2e2b06d0b129cdfb90a81</code></td></tr>
+</table>
+<p>Format: little-endian. "FHD1" or "FHD2", the number of outputs and inputs (and hidden units for FHD2), then float32 biases, float32 scales and int8
+weights for each layer. The inputs are the app's own unit-length image fingerprints.</p>
+<p><strong>Licence:</strong> CC BY-SA 3.0. Attribution: Useful Llamita, trained in part on photos by Open Food Facts contributors.</p>
+<p>Questions: <a href="mailto:useful.llamita@gmail.com">useful.llamita@gmail.com</a></p>
+</main>
+</body>
+</html>
