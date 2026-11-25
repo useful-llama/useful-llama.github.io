@@ -7,6 +7,10 @@ When Google approves an app's closed test, set ready=True and run:   py -I teste
 Screenshots live in testers/img/<slug>/ (icon.webp or icon.jpg, shot-1.jpg ...), from the app's Play listing
 or, when the app's icon has changed since, its newest store icon (Funspañol: Divertinglish/design/branding/icons-scene-20261117).
 Never put unlock codes on this page: it is public. Codes stay in the members-only group post.
+
+Names (HQ, 25 Nov 2026, Play Upload Kit/UPLOAD-ORDER-24-NOV.md): each app's current name, with the old one in brackets until
+its renamed build is live, because testers on older builds still see the old name. Slugs, links and app ids never change.
+An app with its own tester group (group=...) links to that group on its card.
 """
 import html
 import os
@@ -26,7 +30,7 @@ APPS = [
          tryit=["Log a few meals, with the food camera at least once", "Add a scan report if you have one",
                 "Photograph a gym machine's screen after a workout, or track a walk or a run"],
          note="Everything is free for the first 14 days, so you won't need to buy anything."),
-    dict(slug="road-camera", name="Road Camera", pkg="com.usefulllama.roadcamera", ready=True, kind="Driving",
+    dict(slug="road-camera", name="Drivista", pkg="com.usefulllama.roadcamera", ready=True, kind="Driving",
          tag="Your phone is your dash cam.",
          about="Mount your phone, start recording while parked, and drive. Keep the clips that matter, and turn "
                "them into a tidy incident report with photos, a map and your own account, ready as a PDF.",
@@ -46,8 +50,8 @@ APPS = [
                  "neighbour's question out loud, and finishes with a lightning round of words she saved yesterday.",
          tryit=["Do a few lessons, starting from Lo esencial", "Try a speaking activity", "Play one of the games"],
          note="Testers get a free unlock code in the tester group."),
-    dict(slug="invoice-maker", name="Invoice Maker", pkg="com.usefulllama.invoicemaker", ready=True,
-         kind="Business",
+    dict(slug="invoice-maker", name="Plain Invoices (was Invoice Maker)", nav="Plain Invoices",
+         pkg="com.usefulllama.invoicemaker", ready=True, kind="Business",
          tag="Invoices, estimates and contracts on your phone.",
          about="Make a PDF invoice or estimate in a minute, with your saved clients and rates. See what is paid, "
                "unpaid or overdue, record expenses with receipt photos, and export reports to Excel at tax time.",
@@ -57,9 +61,10 @@ APPS = [
          tryit=["Make a sample invoice and look at the PDF", "Turn an estimate into an invoice",
                 "Add an expense with a photo"],
          note=""),
-    dict(slug="time-card", name="Time Card", pkg="com.usefulllama.timecard", ready=True, kind="Work",
+    dict(slug="time-card", name="Punchwise (was Time Card)", nav="Punchwise", pkg="com.usefulllama.timecard", ready=True,
+         kind="Work",
          tag="Your hours and duties, ready for your boss.",
-         about="Add what you did each day and when you started and finished. Time Card adds up the hours, any "
+         about="Add what you did each day and when you started and finished. Punchwise adds up the hours, any "
                "overtime and breaks, and makes a clear time card you can share as a PDF.",
          example="Lena works casual shifts at two cafés. Each evening she adds her start and finish times and "
                  "what she did. At the end of the fortnight she sends each manager a clean PDF time card.",
@@ -67,7 +72,7 @@ APPS = [
                 "Export and share a time card"],
          note=""),
     dict(slug="cats-vs-llamas", name="Cats vs Llamas", pkg="com.usefulllama.catsvsllamas", ready=True,
-         kind="Game",
+         kind="Game", group="https://groups.google.com/g/ullama-catsvsllamas-testers",
          tag="Cute cats or fluffy llamas, in turn-based battles.",
          about="Pick a side and lead your little army across a field of hexagons: knights, wizards, archers, "
                "ninjas and more, each with their own moves. Between battles, grow a 3D city and level up your "
@@ -76,8 +81,8 @@ APPS = [
                  "wizard splashes the llamas. Back in town he builds another house, so his squad can grow.",
          tryit=["Play a few battles", "Build up your city", "Equip a hero with new gear"],
          note="Testers get a free unlock code in the tester group."),
-    dict(slug="hold-the-line", name="Crimson Defiance: Hold the Line", pkg="com.usefulllama.holdtheline",
-         nav="Hold the Line", ready=True, kind="Game",
+    dict(slug="hold-the-line", name="Crimson Defiance: Crater Road (was Hold the Line)", pkg="com.usefulllama.holdtheline",
+         nav="Crater Road", ready=True, kind="Game",
          tag="Tower defence on Mars: hold 50 waves.",
          about="The enemy is coming down the road and your HQ is at the end of it. Build towers beside the road, "
                "place soldiers and tanks, wall the road off, and stop every wave. Play either side, on four "
@@ -108,7 +113,7 @@ APPS = [
                  "y una partida de Word Rain con sus propias palabras.",
          tryit=["Haz algunas lecciones", "Prueba una actividad para hablar", "Juega a uno de los juegos"],
          note=""),
-    dict(slug="pencil-pal", name="Pencil Pal: Learn to Write", pkg="com.usefulllama.pencilpal", nav="Pencil Pal",
+    dict(slug="pencil-pal", name="Scribblito", pkg="com.usefulllama.pencilpal", nav="Scribblito",
          ready=True, kind="Learn to write",
          tag="Learn to write every letter and number with your finger.",
          about="A cheerful pencil shows each letter big across the screen, says how it sounds and guides your "
@@ -160,8 +165,8 @@ def card(a):
         join = ('<a class="join" href="https://play.google.com/apps/testing/%s">Become a tester</a>'
                 '<a class="join store" href="https://play.google.com/store/apps/details?id=%s">Open in Google Play</a>'
                 '<span class="small">Google Play opens it once you\'ve joined the test.</span>'
-                '<span class="small">New here? <a href="%s">Join the tester group</a> first.</span>'
-                % (a["pkg"], a["pkg"], GROUP))
+                '<span class="small">New here? <a href="%s">Join %s tester group</a> first.</span>'
+                % (a["pkg"], a["pkg"], a.get("group") or GROUP, "its own" if a.get("group") else "the"))
     else:
         join = '<span class="soon">Testing opens soon</span><span class="small">Google is still checking it.</span>'
     note = '\n    <p class="small">%s</p>' % esc(a["note"]) if a["note"] else ""
@@ -195,8 +200,8 @@ def page():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Test our apps · Useful Llama</title>
-<meta name="description" content="Help test Useful Llama's Android apps before they reach the Play Store: what each app is like, with real screenshots.">
+<title>Test our apps · Useful Llamita</title>
+<meta name="description" content="Help test Useful Llamita's Android apps before they reach the Play Store: what each app is like, with real screenshots.">
 <link rel="stylesheet" href="../style.css">
 <style>
   main {{ max-width: 860px; }}
@@ -240,7 +245,7 @@ def page():
 </style>
 </head>
 <body>
-<header class="bar"><a class="brand" href="../">Useful Llama</a><a class="all" href="#top">How to join · All apps</a></header>
+<header class="bar"><a class="brand" href="../">Useful Llamita</a><a class="all" href="#top">How to join · All apps</a></header>
 <main>
   <h1 id="top">Help test our apps</h1>
   <p>Before Google lets a new app onto the Play Store for everyone, real people have to test it for 14 days.
@@ -249,7 +254,8 @@ def page():
   <h2>How to join</h2>
   <ol class="steps">
     <li><b>Join the tester group</b> (once is enough for every app): <a href="{group}">open the group</a> and press
-      <b>Join group</b>. It won't send you emails, and nobody in it can see your address.</li>
+      <b>Join group</b>. It won't send you emails, and nobody in it can see your address. (Cats vs Llamas has its own
+      group, linked on its card.)</li>
     <li>On an app below, press <b>Become a tester</b>, then <b>Become a tester</b> again on Google's page.</li>
     <li>When it says <b>You are a tester</b>, tap <b>download it on Google Play</b> and install the app.</li>
   </ol>
@@ -263,7 +269,7 @@ def page():
 
 {cards}
 </main>
-<footer>Made by Useful Llama · <a href="../">All apps and privacy policies</a></footer>
+<footer>Made by Useful Llamita · <a href="../">All apps and privacy policies</a></footer>
 </body>
 </html>
 """.format(group=GROUP, nav=nav, cards=cards)
