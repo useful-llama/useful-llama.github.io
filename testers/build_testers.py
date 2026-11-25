@@ -81,7 +81,7 @@ APPS = [
                  "wizard splashes the llamas. Back in town he builds another house, so his squad can grow.",
          tryit=["Play a few battles", "Build up your city", "Equip a hero with new gear"],
          note="Testers get a free unlock code in the tester group."),
-    dict(slug="hold-the-line", name="Crimson Defiance: Crater Road (was Hold the Line)", pkg="com.usefulllama.holdtheline",
+    dict(slug="hold-the-line", name="Crimson Defiance: Crater Road", pkg="com.usefulllama.holdtheline",
          nav="Crater Road", ready=True, kind="Game",
          tag="Tower defence on Mars: hold 50 waves.",
          about="The enemy is coming down the road and your HQ is at the end of it. Build towers beside the road, "
